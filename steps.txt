@@ -1,0 +1,22 @@
+install:
+openocd
+nordic sdk-12.3.0
+gcc-arm-none-eabi-
+
+use:
+Makefile in each example from nordic sdk.
+cp (sdk)blinky/pca10028/blank/armgcc/Makefile (project)/
+cp (sdk)blinky/main.c (project)/src
+
+in Makefile change all form nrf51422xxac to nrf51822xxaa
+    change sdk root dir
+    add folder / in INC_FOLDERS
+    add folder ./src/pca10028/blank/config/ in INC_FOLDERS
+    in flash:
+	killall -9 openocd
+	add openocd -f interface/stlink-v2.cfg -f target/nrf51.cfg -c "init ; halt; sleep 500 ; nrf51 mass_erase ; sleep 500 ; program $< verify ; sleep 500; reset; sleep 500; nrf51.cpu rtt setup 0x20000000 0x2000 SEGGER\ RTT ; nrf51.cpu rtt start; rtt server start 9090 0"
+
+In Makefile.posix (from sdk) the gcc toolchain 
+
+cp (sdk..)/nrf51_xxaa.ld (project)/blinky_gcc_nrf51.ld
+
