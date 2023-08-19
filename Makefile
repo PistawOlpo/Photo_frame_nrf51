@@ -189,7 +189,7 @@ $(foreach target, $(TARGETS), $(call define_target, $(target)))
 
 # Flash the program
 flash: $(OUTPUT_DIRECTORY)/nrf51822_xxaa.hex
-	killall -9 openocd
+#	killall -9 openocd
 	openocd -f interface/stlink-v2.cfg -f target/nrf51.cfg -c "init ; halt; sleep 500 ; nrf51 mass_erase ; sleep 500 ; program $< verify ; sleep 500; reset; sleep 500; nrf51.cpu rtt setup 0x20000000 0x2000 SEGGER\ RTT ; nrf51.cpu rtt start; rtt server start 9090 0"
 	@echo Flashing: $<
 #	nrfjprog --program $< -f nrf51 --sectorerase

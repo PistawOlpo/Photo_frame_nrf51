@@ -1,5 +1,5 @@
 /**
- * Copyright (c) 2014 - 2017, Nordic Semiconductor ASA
+ * Copyright (c) 2016 - 2017, Nordic Semiconductor ASA
  * 
  * All rights reserved.
  * 
@@ -39,80 +39,161 @@
  */
 
 /** @file
- *
- * @defgroup blinky_example_main main.c
+ * @defgroup fatfs_example_main main.c
  * @{
- * @ingroup blinky_example
- * @brief Blinky Example Application main file.
+ * @ingroup fatfs_example
+ * @brief FATFS Example Application main file.
  *
- * This file contains the source code for a sample application to blink LEDs.
+ * This file contains the source code for a sample application using FAT filesystem and SD card library.
  *
  */
-#define NRF_LOG_DEFAULT_LEVEL 4
-#include <stdbool.h>
-#include <stdint.h>
-#include "nrf_delay.h"
-#include "boards.h"
 
-#include "nrf_log_ctrl.h"
+
+#include "nrf.h"
+#include "bsp.h"
+#include "ff.h"
+#include "diskio_blkdev.h"
+#include "nrf_block_dev_sdc.h"
+
+#define NRF_LOG_MODULE_NAME "APP"
 #include "nrf_log.h"
+#include "nrf_log_ctrl.h"
 
-void foo(void)
-{ 
- char string_on_stack[] = "stack";
- //nrf_log_push() copies the string into the logger buffer and returns address from the logger buffer
- NRF_LOG_INFO("%s",nrf_log_push(string_on_stack));
+#define FILE_NAME   "NORDIC.TXT"
+#define TEST_STRING "SD card example.\r\n"
+
+#define SDC_SCK_PIN     ARDUINO_13_PIN  ///< SDC serial clock (SCK) pin.
+#define SDC_MOSI_PIN    ARDUINO_11_PIN  ///< SDC serial data in (DI) pin.
+#define SDC_MISO_PIN    ARDUINO_12_PIN  ///< SDC serial data out (DO) pin.
+#define SDC_CS_PIN      ARDUINO_10_PIN  ///< SDC chip select (CS) pin.
+
+/**
+ * @brief  SDC block device definition
+ * */
+NRF_BLOCK_DEV_SDC_DEFINE(
+        m_block_dev_sdc,
+        NRF_BLOCK_DEV_SDC_CONFIG(
+                SDC_SECTOR_SIZE,
+                APP_SDCARD_CONFIG(SDC_MOSI_PIN, SDC_MISO_PIN, SDC_SCK_PIN, SDC_CS_PIN)
+         ),
+         NFR_BLOCK_DEV_INFO_CONFIG("Nordic", "SDC", "1.00")
+);
+
+/**
+ * @brief Function for demonstrating FAFTS usage.
+ */
+static void fatfs_example()
+{
+    static FATFS fs;
+    static DIR dir;
+    static FILINFO fno;
+    static FIL file;
+
+    uint32_t bytes_written;
+    FRESULT ff_result;
+    DSTATUS disk_state = STA_NOINIT;
+
+    // Initialize FATFS disk I/O interface by providing the block device.
+    static diskio_blkdev_t drives[] =
+    {
+            DISKIO_BLOCKDEV_CONFIG(NRF_BLOCKDEV_BASE_ADDR(m_block_dev_sdc, block_dev), NULL)
+    };
+
+    diskio_blockdev_register(drives, ARRAY_SIZE(drives));
+
+    NRF_LOG_INFO("Initializing disk 0 (SDC)...\r\n");
+    for (uint32_t retries = 3; retries && disk_state; --retries)
+    {
+        disk_state = disk_initialize(0);
+    }
+    if (disk_state)
+    {
+        NRF_LOG_INFO("Disk initialization failed.\r\n");
+        return;
+    }
+    
+    uint32_t blocks_per_mb = (1024uL * 1024uL) / m_block_dev_sdc.block_dev.p_ops->geometry(&m_block_dev_sdc.block_dev)->blk_size;
+    uint32_t capacity = m_block_dev_sdc.block_dev.p_ops->geometry(&m_block_dev_sdc.block_dev)->blk_count / blocks_per_mb;
+    NRF_LOG_INFO("Capacity: %d MB\r\n", capacity);
+
+    NRF_LOG_INFO("Mounting volume...\r\n");
+    ff_result = f_mount(&fs, "", 1);
+    if (ff_result)
+    {
+        NRF_LOG_INFO("Mount failed.\r\n");
+        return;
+    }
+
+    NRF_LOG_INFO("\r\n Listing directory: /\r\n");
+    ff_result = f_opendir(&dir, "/");
+    if (ff_result)
+    {
+        NRF_LOG_INFO("Directory listing failed!\r\n");
+        return;
+    }
+    
+    do
+    {
+        ff_result = f_readdir(&dir, &fno);
+        if (ff_result != FR_OK)
+        {
+            NRF_LOG_INFO("Directory read failed.");
+            return;
+        }
+        
+        if (fno.fname[0])
+        {
+            if (fno.fattrib & AM_DIR)
+            {
+                NRF_LOG_RAW_INFO("   <DIR>   %s\r\n",(uint32_t)fno.fname);
+            }
+            else
+            {
+                NRF_LOG_RAW_INFO("%9lu  %s\r\n", fno.fsize, (uint32_t)fno.fname);
+            }
+        }
+    }
+    while (fno.fname[0]);
+    NRF_LOG_RAW_INFO("\r\n");
+    
+    NRF_LOG_INFO("Writing to file " FILE_NAME "...\r\n");
+    ff_result = f_open(&file, FILE_NAME, FA_READ | FA_WRITE | FA_OPEN_APPEND);
+    if (ff_result != FR_OK)
+    {
+        NRF_LOG_INFO("Unable to open or create file: " FILE_NAME ".\r\n");
+        return;
+    }
+
+    ff_result = f_write(&file, TEST_STRING, sizeof(TEST_STRING) - 1, (UINT *) &bytes_written);
+    if (ff_result != FR_OK)
+    {
+        NRF_LOG_INFO("Write failed\r\n.");
+    }
+    else
+    {
+        NRF_LOG_INFO("%d bytes written.\r\n", bytes_written);
+    }
+
+    (void) f_close(&file);
+    return;
 }
 
-/**void send_func( uint32_t length)
-{
- NRF_LOG_INFO("sending data\r\n");
- NRF_LOG_DEBUG("%d bytes, data:\r\n", length);
- //NRF_LOG_HEXDUMP_DEBUG(p_data, length);
- if (true)
- { 
- NRF_LOG_ERROR("Phy is busy\r\n"); 
- }
-}**/
 /**
- * @brief Function for application main entry.
+ * @brief Function for main application entry.
  */
 int main(void)
 {
-    /* Configure board. */
     bsp_board_leds_init();
-    
-    uint32_t err_code;
-    // Initialize module
-    err_code = NRF_LOG_INIT(NULL);
-    if (err_code != NRF_SUCCESS)
-    {
-    // Module initialization failed. Take corrective action.
-    return 0;
-    }
+
+    APP_ERROR_CHECK(NRF_LOG_INIT(NULL));
+    NRF_LOG_INFO("\r\nFATFS example.\r\n\r\n");
+
+    fatfs_example();
 
     while (true)
     {
-        for (int i = 0; i < LEDS_NUMBER; i++)
-        {
-            bsp_board_led_invert(i);
-            nrf_delay_ms(500);
-            if (!NRF_LOG_PROCESS()) {
-                NRF_LOG_FLUSH() ;
-            }
-
-            NRF_LOG_INFO("sending data\r\n");
-            NRF_LOG_DEBUG("%d bytes, data:\r\n", 10);
-            NRF_LOG_HEXDUMP_DEBUG("piotrstawciki", 10);
-
-            
-
-
-          //  foo();
-        }
+        __WFE();
     }
 }
 
-/**
- *@}
- **/
+/** @} */

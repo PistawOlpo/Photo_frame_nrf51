@@ -39,27 +39,7 @@ _build/nrf51822_xxaa_nrf_drv_clock.c.o: \
  /home/pistaw/projects/nrf51822/sdk/nRF5_SDK_12.3.0_d7731ad/components/device/nrf51_bitfields.h \
  /home/pistaw/projects/nrf51822/sdk/nRF5_SDK_12.3.0_d7731ad/components/device/nrf51_deprecated.h \
  /home/pistaw/projects/nrf51822/sdk/nRF5_SDK_12.3.0_d7731ad/components/device/compiler_abstraction.h \
- /home/pistaw/projects/nrf51822/sdk/nRF5_SDK_12.3.0_d7731ad/components/libraries/util/sdk_macros.h \
- /home/pistaw/projects/nrf51822/sdk/nRF5_SDK_12.3.0_d7731ad/components/drivers_nrf/clock/nrf_drv_clock.h \
- /home/pistaw/projects/nrf51822/sdk/nRF5_SDK_12.3.0_d7731ad/components/libraries/util/sdk_errors.h \
- /home/pistaw/projects/nrf51822/sdk/nRF5_SDK_12.3.0_d7731ad/components/libraries/util/nrf_assert.h \
- /home/pistaw/projects/nrf51822/sdk/nRF5_SDK_12.3.0_d7731ad/components/libraries/util/app_error.h \
- /home/pistaw/projects/nrf51822/toolchain/gcc-arm-none-eabi-10.3-2021.10/arm-none-eabi/include/stdio.h \
- /home/pistaw/projects/nrf51822/toolchain/gcc-arm-none-eabi-10.3-2021.10/lib/gcc/arm-none-eabi/10.3.1/include/stdarg.h \
- /home/pistaw/projects/nrf51822/toolchain/gcc-arm-none-eabi-10.3-2021.10/arm-none-eabi/include/sys/types.h \
- /home/pistaw/projects/nrf51822/toolchain/gcc-arm-none-eabi-10.3-2021.10/arm-none-eabi/include/sys/_pthreadtypes.h \
- /home/pistaw/projects/nrf51822/toolchain/gcc-arm-none-eabi-10.3-2021.10/arm-none-eabi/include/machine/types.h \
- /home/pistaw/projects/nrf51822/toolchain/gcc-arm-none-eabi-10.3-2021.10/arm-none-eabi/include/sys/stdio.h \
- /home/pistaw/projects/nrf51822/sdk/nRF5_SDK_12.3.0_d7731ad/components/libraries/util/app_error_weak.h \
- /home/pistaw/projects/nrf51822/sdk/nRF5_SDK_12.3.0_d7731ad/components/drivers_nrf/hal/nrf_clock.h \
- /home/pistaw/projects/nrf51822/sdk/nRF5_SDK_12.3.0_d7731ad/components/drivers_nrf/common/nrf_drv_common.h \
- /home/pistaw/projects/nrf51822/sdk/nRF5_SDK_12.3.0_d7731ad/components/libraries/util/app_util_platform.h \
- /home/pistaw/projects/nrf51822/sdk/nRF5_SDK_12.3.0_d7731ad/components/libraries/util/nrf_assert.h \
- /home/pistaw/projects/nrf51822/sdk/nRF5_SDK_12.3.0_d7731ad/components/libraries/log/nrf_log.h \
- /home/pistaw/projects/nrf51822/sdk/nRF5_SDK_12.3.0_d7731ad/components/libraries/log/src/nrf_log_internal.h \
- /home/pistaw/projects/nrf51822/sdk/nRF5_SDK_12.3.0_d7731ad/components/libraries/util/app_util.h \
- /home/pistaw/projects/nrf51822/sdk/nRF5_SDK_12.3.0_d7731ad/components/libraries/log/nrf_log_ctrl.h \
- /home/pistaw/projects/nrf51822/sdk/nRF5_SDK_12.3.0_d7731ad/components/libraries/log/src/nrf_log_ctrl_internal.h
+ /home/pistaw/projects/nrf51822/sdk/nRF5_SDK_12.3.0_d7731ad/components/libraries/util/sdk_macros.h
 /home/pistaw/projects/nrf51822/sdk/nRF5_SDK_12.3.0_d7731ad/components/libraries/util/sdk_common.h:
 /home/pistaw/projects/nrf51822/toolchain/gcc-arm-none-eabi-10.3-2021.10/lib/gcc/arm-none-eabi/10.3.1/include/stdint.h:
 /home/pistaw/projects/nrf51822/toolchain/gcc-arm-none-eabi-10.3-2021.10/arm-none-eabi/include/stdint.h:
@@ -100,23 +80,3 @@ src/pca10028/blank/config/sdk_config.h:
 /home/pistaw/projects/nrf51822/sdk/nRF5_SDK_12.3.0_d7731ad/components/device/nrf51_deprecated.h:
 /home/pistaw/projects/nrf51822/sdk/nRF5_SDK_12.3.0_d7731ad/components/device/compiler_abstraction.h:
 /home/pistaw/projects/nrf51822/sdk/nRF5_SDK_12.3.0_d7731ad/components/libraries/util/sdk_macros.h:
-/home/pistaw/projects/nrf51822/sdk/nRF5_SDK_12.3.0_d7731ad/components/drivers_nrf/clock/nrf_drv_clock.h:
-/home/pistaw/projects/nrf51822/sdk/nRF5_SDK_12.3.0_d7731ad/components/libraries/util/sdk_errors.h:
-/home/pistaw/projects/nrf51822/sdk/nRF5_SDK_12.3.0_d7731ad/components/libraries/util/nrf_assert.h:
-/home/pistaw/projects/nrf51822/sdk/nRF5_SDK_12.3.0_d7731ad/components/libraries/util/app_error.h:
-/home/pistaw/projects/nrf51822/toolchain/gcc-arm-none-eabi-10.3-2021.10/arm-none-eabi/include/stdio.h:
-/home/pistaw/projects/nrf51822/toolchain/gcc-arm-none-eabi-10.3-2021.10/lib/gcc/arm-none-eabi/10.3.1/include/stdarg.h:
-/home/pistaw/projects/nrf51822/toolchain/gcc-arm-none-eabi-10.3-2021.10/arm-none-eabi/include/sys/types.h:
-/home/pistaw/projects/nrf51822/toolchain/gcc-arm-none-eabi-10.3-2021.10/arm-none-eabi/include/sys/_pthreadtypes.h:
-/home/pistaw/projects/nrf51822/toolchain/gcc-arm-none-eabi-10.3-2021.10/arm-none-eabi/include/machine/types.h:
-/home/pistaw/projects/nrf51822/toolchain/gcc-arm-none-eabi-10.3-2021.10/arm-none-eabi/include/sys/stdio.h:
-/home/pistaw/projects/nrf51822/sdk/nRF5_SDK_12.3.0_d7731ad/components/libraries/util/app_error_weak.h:
-/home/pistaw/projects/nrf51822/sdk/nRF5_SDK_12.3.0_d7731ad/components/drivers_nrf/hal/nrf_clock.h:
-/home/pistaw/projects/nrf51822/sdk/nRF5_SDK_12.3.0_d7731ad/components/drivers_nrf/common/nrf_drv_common.h:
-/home/pistaw/projects/nrf51822/sdk/nRF5_SDK_12.3.0_d7731ad/components/libraries/util/app_util_platform.h:
-/home/pistaw/projects/nrf51822/sdk/nRF5_SDK_12.3.0_d7731ad/components/libraries/util/nrf_assert.h:
-/home/pistaw/projects/nrf51822/sdk/nRF5_SDK_12.3.0_d7731ad/components/libraries/log/nrf_log.h:
-/home/pistaw/projects/nrf51822/sdk/nRF5_SDK_12.3.0_d7731ad/components/libraries/log/src/nrf_log_internal.h:
-/home/pistaw/projects/nrf51822/sdk/nRF5_SDK_12.3.0_d7731ad/components/libraries/util/app_util.h:
-/home/pistaw/projects/nrf51822/sdk/nRF5_SDK_12.3.0_d7731ad/components/libraries/log/nrf_log_ctrl.h:
-/home/pistaw/projects/nrf51822/sdk/nRF5_SDK_12.3.0_d7731ad/components/libraries/log/src/nrf_log_ctrl_internal.h:
