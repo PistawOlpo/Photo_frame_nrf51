@@ -4,11 +4,13 @@ Another project of a photo frame with 7-color epaper with nordic nrf51822xxaa ch
 (NOT WORKING YET)
 
 
+
 You will need:
 
 nrf51822 board (my is nrf51822-02)
 
 7 color epaper from waveshare with spi 
+
 
 
 You willneed to install:
@@ -20,11 +22,13 @@ nordic sdk-12.3.0
 gcc-arm-none-eabi-
 
 
+
 Install:
 
 make
 
 make flash
+
 
 
 Connecting to the logger:
