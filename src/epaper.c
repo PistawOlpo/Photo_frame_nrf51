@@ -1,11 +1,11 @@
 /*****************************************************************************
 * | File      	:   epaper.c
-* | Author      :   Waveshare team, and other
+* | Author      :   Waveshare team, and others
 * | Function    :   7.3inch e-paper F
 * | Info        :
 *----------------
 * |	This version:   V1.0
-* | Date        :   2022-10-21
+* | Date        :   2023-09-07
 * | Info        :
 * -----------------------------------------------------------------------------
 #
@@ -45,12 +45,6 @@ static volatile bool spi_xfer_done;  /**< Flag used to indicate that SPI instanc
 void spi_event_handler(nrf_drv_spi_evt_t const * p_event)
 {
     spi_xfer_done = true;
-    //NRF_LOG_INFO("Transfer completed.\r\n");
- //if (m_rx_buf[0] != 0)
- //
- //   NRF_LOG_INFO(" Received: \r\n");
- //   NRF_LOG_HEXDUMP_INFO(m_rx_buf, strlen((const char *)m_rx_buf));
- //
 }
 bool spi_not_set =true;
 int IfInit(void) {
@@ -76,7 +70,6 @@ int IfInit(void) {
 void SpiTransfer(u_int8_t data) {
     nrf_gpio_pin_clear(EP_CS_PIN);
 
-   // memset(m_rx_buf, 0, m_length);
     spi_xfer_done = false;
 
     (nrf_drv_spi_transfer(&spi, &data, 1,NULL, 0));
@@ -98,7 +91,6 @@ void Epd_SendData(u_int8_t data) {
 void Epd_BusyHigh(void)// If BUSYN=0 then waiting
 {
     while(!nrf_gpio_pin_read(EP_BUSY)) {
-       // NRF_LOG_INFO("EP_BUSY true\r\n.");
         nrf_delay_ms(10);
     }
 }

@@ -3,12 +3,9 @@ from PIL import Image, ImageOps
 import os
 #import cv2
 directory ="./photo/"
-filename = "./photo/ja.jpg"
 widh_screen, height_screen  = 800, 480
 colorpalet7color =np.array([[0,0,0],[255,255,255],[0,255,0],
              [0,0,255],[255,0,0],[255,255,0],[255,165,0]])
-#colorpalet7color =np.array([[0,0,0],[255,255,255],[0,255,0],
- #            [0,0,255],[255,0,0],[255,255,0],[255,165,0],[0,255,255],[0,165,255]])
 
 
 def resize_imag(img,height_screen,widh_screen):
@@ -40,7 +37,6 @@ def scale_w_crop_h_imaq(img,new_height,new_widh):
 def Floyd_Steinberg_dithering(img,colorpalet):
     widh, height,  = img.size
     num= np.copy(np.asarray(img))/255.
-    #print(num.shape)
     out = np.zeros((height, widh),dtype=np.uint8)
     
     for y in range(widh):
@@ -61,9 +57,7 @@ def Floyd_Steinberg_dithering(img,colorpalet):
                 num[x    ,y + 1] = num[x    ,y + 1] + error *5/16.
                 if x<height-1:
                     num[x + 1,y + 1] = num[x + 1,y + 1] + error *1/16.
-    #print(num[478,:]*255)                
     img = Image.fromarray(np.uint8(num*255),"RGB")
-    #print(out[478,:])
     return img, out
 
 def closest_palet_color(pixel,colorpalet):
@@ -72,36 +66,24 @@ def closest_palet_color(pixel,colorpalet):
 
 def shrink(In):
     x,y = In.shape
-   # print(In)
     out = np.zeros((x,int(y/2)),dtype=np.uint8)
     for i in range(x):
         for j in range(int(y/2)):
-            #print(In[i,2*j])
             out[i,j] =  In[i,2*j]<<4 | In[i,2*j+1]
-    #print(np.unpackbits(out[478,0]))
-    #print(np.unpackbits(out[478,1]))
-    #print(bytes(bytearray(out)))
-    #print(out.shape)
     return bytes(out)
             
 def deshrink(In):
     In = np.reshape(np.asarray(bytearray(In)),(height_screen,int(widh_screen/2)))
     x,y = In.shape
-    #print(In)
     out = np.zeros((x,int(y*2),3),dtype=np.uint8)
     for i in range(x):
         for j in range(int(y*2)):
-            #print(In[i,2*j])
             temp = (In[i,int(j/2)] & 0b11110000)>>4
-            #print (temp)
             temp1 = (In[i,int(j/2)] & 0b1111)
-            #print (temp1)
-            
             if j%2==0:
                 out[i,j] = np.copy(colorpalet7color[temp])
             else:
                 out[i,j] = np.copy(colorpalet7color[temp1])
-    #print(out)
     return out        
     
 
@@ -121,10 +103,6 @@ for file in os.listdir(directory):
         img = resize_imag(img,height_screen,widh_screen)
         img, out = Floyd_Steinberg_dithering(img,colorpalet7color)
         out = shrink(out)
-        #temp = img = Image.fromarray(deshrink(out))
-        #temp.show()
         with open("./outdata/"+ file[0:-3] + "dat", "wb") as binary_file:
             binary_file.write(out)
-        #out.tofile("./outdata/"+ file[0:-3] + "dat",format="%b")
         img.save("./out/" + file)
-        #img.save("./outdata/"+ file[0:-3] + "dat")

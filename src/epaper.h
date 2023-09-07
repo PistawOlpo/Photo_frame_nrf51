@@ -1,11 +1,11 @@
 /*****************************************************************************
 * | File      	:   epaper.h
-* | Author      :   Waveshare team, and other
+* | Author      :   Waveshare team, and others
 * | Function    :   7.3inch e-paper F
 * | Info        :
 *----------------
 * |	This version:   V1.0
-* | Date        :   2022-10-21
+* | Date        :   2023-09-07
 * | Info        :
 * -----------------------------------------------------------------------------
 #
