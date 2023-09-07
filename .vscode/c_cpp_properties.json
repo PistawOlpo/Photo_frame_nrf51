@@ -1,0 +1,49 @@
+{
+    "configurations": [
+        {
+            "name": "Linux",
+            "includePath": [
+                "/home/pistaw/projects/nrf51822/Photo_frame_nrf51/**",
+                "/home/pistaw/projects/nrf51822/sdk/nRF5_SDK_12.3.0_d7731ad/**",
+                "/home/pistaw/projects/nrf51822/sdk/nRF5_SDK_12.3.0_d7731ad/components/device"
+            ],
+            "defines": [],
+            "compilerPath": "/home/pistaw/miniconda3/bin/clang",
+            "cStandard": "c17",
+            "cppStandard": "c++14",
+            "intelliSenseMode": "linux-clang-x64",
+            "compilerPathInCppPropertiesJson": "/home/pistaw/miniconda3/bin/clang",
+            "mergeConfigurations": false,
+            "browse": {
+                "path": [
+                    "/home/pistaw/projects/nrf51822/Photo_frame_nrf51/**",
+                    "${workspaceFolder}/**"
+                ],
+                "limitSymbolsToIncludedHeaders": false
+            }
+        },
+        {
+            "name": "Linux2",
+            "includePath": [
+                "${workspaceFolder}/**",
+                "~/projects/nrf51822/sdk/nRF5_SDK_12.3.0_d7731ad/**",
+                "/home/pistaw/projects/nrf51822/sdk/nRF5_SDK_12.3.0_d7731ad/components/drivers_nrf/spi_master"
+            ],
+            "defines": [],
+            "compilerPath": "/home/pistaw/projects/nrf51822/toolchain/gcc-arm-none-eabi-10.3-2021.10/bin/arm-none-eabi-gcc",
+            "cStandard": "gnu17",
+            "cppStandard": "c++17",
+            "intelliSenseMode": "linux-clang-x64",
+            "compilerPathInCppPropertiesJson": "/home/pistaw/miniconda3/bin/clang",
+            "mergeConfigurations": false,
+            "browse": {
+                "path": [
+                    "${workspaceFolder}"
+                ],
+                "limitSymbolsToIncludedHeaders": false
+            },
+            "configurationProvider": "ms-vscode.makefile-tools"
+        }
+    ],
+    "version": 4
+}

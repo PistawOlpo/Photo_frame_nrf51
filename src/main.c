@@ -39,12 +39,14 @@
  */
 
 /** @file
- * @defgroup fatfs_example_main main.c
+ * @defgroup frame_main main.c
  * @{
- * @ingroup fatfs_example
- * @brief FATFS Example Application main file.
+ * @ingroup frame
+ * @brief Frame Application main file.
  *
  * This file contains the source code for a sample application using FAT filesystem and SD card library.
+ * The program reads in sequence all .jpg files in the folder outdata/ on the SD card and displaying
+ * them on the 7.3 inch color display from waveshare 
  *
  */
 
@@ -54,19 +56,51 @@
 #include "ff.h"
 #include "diskio_blkdev.h"
 #include "nrf_block_dev_sdc.h"
+#include "nrf_gpio.h"
+#include "nrf_delay.h"
 
-#define NRF_LOG_MODULE_NAME "APP"
+#include "nrf_drv_spi.h"
+#include "app_util_platform.h"
+#include "boards.h"
+#include "app_error.h"
+#include <string.h>
 #include "nrf_log.h"
 #include "nrf_log_ctrl.h"
 
-#define FILE_NAME   "NORDIC.TXT"
-#define TEST_STRING "SD card example.\r\n"
+#define NRF_LOG_MODULE_NAME2 "APP"
+#include "nrf_log.h"
+#include "nrf_log_ctrl.h"
+
+#include "epaper.h"
+//#include "imagedata.h"
+
+#include <string.h>
+
+
+//#define FILE_NAME   "/OUTDATA/1.DAT"
+#define TEST_STRING2 "SD card example.\r\n"
 
 #define SDC_SCK_PIN     ARDUINO_13_PIN  ///< SDC serial clock (SCK) pin.
 #define SDC_MOSI_PIN    ARDUINO_11_PIN  ///< SDC serial data in (DI) pin.
 #define SDC_MISO_PIN    ARDUINO_12_PIN  ///< SDC serial data out (DO) pin.
 #define SDC_CS_PIN      ARDUINO_10_PIN  ///< SDC chip select (CS) pin.
 
+
+
+
+#define TEST_STRING "Nordic"
+//static uint8_t       m_tx_buf[] = TEST_STRING;           /**< TX buffer. */
+//static uint8_t       m_rx_buf[sizeof(TEST_STRING) + 1];    /**< RX buffer. */
+//static const uint8_t m_length = sizeof(m_tx_buf);        /**< Transfer length. */
+
+uint8_t      read_buf[400];
+static volatile bool buf_write_read_done; 
+uint32_t current_File[12+1];
+
+
+/**
+ * @brief Function for main application entry.
+ */
 /**
  * @brief  SDC block device definition
  * */
@@ -81,15 +115,18 @@ NRF_BLOCK_DEV_SDC_DEFINE(
 
 /**
  * @brief Function for demonstrating FAFTS usage.
- */
+ **/
 static void fatfs_example()
 {
     static FATFS fs;
-    static DIR dir;
-    static FILINFO fno;
+    static DIR dir,dj;
+    static FILINFO fno2;
     static FIL file;
 
-    uint32_t bytes_written;
+    UINT br;//, bw;         /* File read/write count */
+
+
+   // uint32_t bytes_written;
     FRESULT ff_result;
     DSTATUS disk_state = STA_NOINIT;
 
@@ -124,76 +161,119 @@ static void fatfs_example()
         return;
     }
 
-    NRF_LOG_INFO("\r\n Listing directory: /\r\n");
-    ff_result = f_opendir(&dir, "/");
+    NRF_LOG_INFO("\r\n Listing directory: /outdata\r\n");
+    ff_result = f_opendir(&dir, "/outdata");
     if (ff_result)
     {
         NRF_LOG_INFO("Directory listing failed!\r\n");
         return;
     }
     
-    do
-    {
-        ff_result = f_readdir(&dir, &fno);
-        if (ff_result != FR_OK)
-        {
-            NRF_LOG_INFO("Directory read failed.");
-            return;
-        }
-        
-        if (fno.fname[0])
-        {
-            if (fno.fattrib & AM_DIR)
-            {
-                NRF_LOG_RAW_INFO("   <DIR>   %s\r\n",(uint32_t)fno.fname);
-            }
-            else
-            {
-                NRF_LOG_RAW_INFO("%9lu  %s\r\n", fno.fsize, (uint32_t)fno.fname);
-            }
-        }
-    }
-    while (fno.fname[0]);
+    // do
+    // {
+        // ff_result = f_readdir(&dir, &fno);
+        // if (ff_result != FR_OK)
+        // {
+            // NRF_LOG_INFO("Directory read failed.");
+            // return;
+        // }
+        // 
+        // if (fno.fname[0])
+        // {
+            // if (fno.fattrib & AM_DIR)
+            // {
+                // NRF_LOG_RAW_INFO("   <DIR>   %s\r\n",(uint32_t)fno.fname);
+            // }
+            // else
+            // {
+                // NRF_LOG_RAW_INFO("%9lu  %s\r\n", fno.fsize, (uint32_t)fno.fname);
+            // }
+        // }
+    // }
+    // while (fno.fname[0]);
     NRF_LOG_RAW_INFO("\r\n");
     
-    NRF_LOG_INFO("Writing to file " FILE_NAME "...\r\n");
-    ff_result = f_open(&file, FILE_NAME, FA_READ | FA_WRITE | FA_OPEN_APPEND);
-    if (ff_result != FR_OK)
-    {
-        NRF_LOG_INFO("Unable to open or create file: " FILE_NAME ".\r\n");
-        return;
+    //NRF_LOG_INFO("Writing to file " FILE_NAME "...\r\n");
+    
+   
+    ff_result = f_findfirst(&dj, &fno2, "/OUTDATA", "*.DAT"); /* Start to search for photo files */
+    NRF_LOG_INFO("file: %s .\r\n",(u_int32_t)fno2.fname);
+
+
+    while(ff_result == FR_OK && fno2.fname[0]) {
+        TCHAR dest[8+1+12+1]="/outdata/";
+        strncat(dest, fno2.fname, 13);
+    
+        ff_result = f_open(&file, dest , FA_READ );
+        if (ff_result != FR_OK)
+        {
+            NRF_LOG_INFO("Unable to open or create file: %s .\r\n",(u_int32_t)dest);
+            return;
+        }
+            NRF_LOG_INFO("Open file: %s .\r\n",(u_int32_t) dest );
+
+          if (Epd_Init() != 0) {
+            NRF_LOG_INFO("e-Paper init failed\r\n")
+        return ;
+        } 
+        Epd_Clear(EPD_7IN3F_WHITE);
+        nrf_delay_ms(14000);
+        Epd_SendCommand(0x10);
+  
+        for (;;) {
+            ff_result = f_read(&file, read_buf, sizeof(read_buf), &br); /* Read a chunk of data from the source file */
+            NRF_LOG_INFO("Read %u\r\n.", br);
+            if (br == 0) break; /* error or eof */
+            for(UINT j = 0 ; j < br; j ++) {
+                //int k=2;
+                    Epd_SendData(read_buf[j]);
+                // Epd_SendData(68);
+                }
+        }
+        (void) f_close(&file);
+        Epd_TurnOnDisplay();
+        nrf_delay_ms(14000);
+        Epd_Sleep();
+
+        nrf_delay_ms(60000);
+        ff_result = f_findnext(&dj, &fno2);
     }
 
-    ff_result = f_write(&file, TEST_STRING, sizeof(TEST_STRING) - 1, (UINT *) &bytes_written);
     if (ff_result != FR_OK)
     {
-        NRF_LOG_INFO("Write failed\r\n.");
+        NRF_LOG_INFO("read failed\r\n.");
     }
     else
     {
-        NRF_LOG_INFO("%d bytes written.\r\n", bytes_written);
+        NRF_LOG_INFO("read success\r\n");
     }
 
-    (void) f_close(&file);
+    
     return;
 }
 
-/**
- * @brief Function for main application entry.
- */
 int main(void)
 {
-    bsp_board_leds_init();
 
     APP_ERROR_CHECK(NRF_LOG_INIT(NULL));
-    NRF_LOG_INFO("\r\nFATFS example.\r\n\r\n");
 
-    fatfs_example();
+    NRF_LOG_INFO("SPI test\r\n");
 
+    
+    Epd_Reset();
+    if (Epd_Init() != 0) {
+        NRF_LOG_INFO("e-Paper init failed\r\n");
+        return -1;
+    } 
+    NRF_LOG_INFO("e-Paper is init\r\n");
+   
+    
     while (true)
     {
-        __WFE();
+        fatfs_example();
+       // __WFE();
     }
+    NRF_LOG_INFO("\r\nEnd of program.\r\n\r\n");
 }
 
 /** @} */
