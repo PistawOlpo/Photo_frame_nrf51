@@ -60,8 +60,8 @@ void Epd_BusyHigh(void);
 void Epd_TurnOnDisplay(void);
 void Epd_Reset(void);
 void Epd_Display(const UBYTE *image);
-void Epd_Display_part(const UBYTE *image, UWORD xstart, UWORD ystart, 
-                                 UWORD image_width, UWORD image_heigh);
+void Epd_Display_part(const UBYTE *image, UWORD xstart, UWORD ystart,
+                      UWORD image_width, UWORD image_heigh);
 void Epd_Show7Block(void);
 void Epd_SendCommand(unsigned char command);
 void Epd_SendData(unsigned char data);

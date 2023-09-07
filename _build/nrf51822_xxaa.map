@@ -3748,7 +3748,7 @@ LOAD linker stubs
  .debug_frame   0x00000000000015cc       0xb0 /home/pistaw/projects/nrf51822/toolchain/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(lib_a-lock.o)
  .debug_frame   0x000000000000167c       0x20 /home/pistaw/projects/nrf51822/toolchain/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libnosys.a(sbrk.o)
 
-.debug_info     0x0000000000000000    0x22a18
+.debug_info     0x0000000000000000    0x22a19
  .debug_info    0x0000000000000000      0xb94 _build/nrf51822_xxaa_nrf_log_backend_serial.c.o
  .debug_info    0x0000000000000b94     0x1113 _build/nrf51822_xxaa_nrf_log_frontend.c.o
  .debug_info    0x0000000000001ca7      0x359 _build/nrf51822_xxaa_app_error.c.o
@@ -3758,12 +3758,12 @@ LOAD linker stubs
  .debug_info    0x0000000000006f32      0x463 _build/nrf51822_xxaa_nrf_drv_common.c.o
  .debug_info    0x0000000000007395     0x2224 _build/nrf51822_xxaa_nrf_drv_spi.c.o
  .debug_info    0x00000000000095b9     0x32ce _build/nrf51822_xxaa_nrf_drv_uart.c.o
- .debug_info    0x000000000000c887     0xa58c _build/nrf51822_xxaa_epaper.c.o
- .debug_info    0x0000000000016e13     0x12c9 _build/nrf51822_xxaa_main.c.o
- .debug_info    0x00000000000180dc     0x2943 _build/nrf51822_xxaa_SEGGER_RTT.c.o
- .debug_info    0x000000000001aa1f      0xb1e _build/nrf51822_xxaa_diskio_blkdev.c.o
- .debug_info    0x000000000001b53d     0x72e0 _build/nrf51822_xxaa_ff.c.o
- .debug_info    0x000000000002281d      0x1fb _build/nrf51822_xxaa_system_nrf51.c.o
+ .debug_info    0x000000000000c887     0xa58d _build/nrf51822_xxaa_epaper.c.o
+ .debug_info    0x0000000000016e14     0x12c9 _build/nrf51822_xxaa_main.c.o
+ .debug_info    0x00000000000180dd     0x2943 _build/nrf51822_xxaa_SEGGER_RTT.c.o
+ .debug_info    0x000000000001aa20      0xb1e _build/nrf51822_xxaa_diskio_blkdev.c.o
+ .debug_info    0x000000000001b53e     0x72e0 _build/nrf51822_xxaa_ff.c.o
+ .debug_info    0x000000000002281e      0x1fb _build/nrf51822_xxaa_system_nrf51.c.o
 
 .debug_abbrev   0x0000000000000000     0x2cc6
  .debug_abbrev  0x0000000000000000      0x370 _build/nrf51822_xxaa_nrf_log_backend_serial.c.o
@@ -3950,7 +3950,7 @@ LOAD linker stubs
  .debug_macro   0x000000000000d41f       0xe7 _build/nrf51822_xxaa_ff.c.o
  .debug_macro   0x000000000000d506       0xdf _build/nrf51822_xxaa_system_nrf51.c.o
 
-.debug_line     0x0000000000000000    0x1cde3
+.debug_line     0x0000000000000000    0x1ce4e
  .debug_line    0x0000000000000000     0x11f6 _build/nrf51822_xxaa_nrf_log_backend_serial.c.o
  .debug_line    0x00000000000011f6      0xd70 _build/nrf51822_xxaa_nrf_log_frontend.c.o
  .debug_line    0x0000000000001f66      0x88b _build/nrf51822_xxaa_app_error.c.o
@@ -3960,12 +3960,12 @@ LOAD linker stubs
  .debug_line    0x00000000000068af      0x830 _build/nrf51822_xxaa_nrf_drv_common.c.o
  .debug_line    0x00000000000070df     0x1862 _build/nrf51822_xxaa_nrf_drv_spi.c.o
  .debug_line    0x0000000000008941     0x1cc3 _build/nrf51822_xxaa_nrf_drv_uart.c.o
- .debug_line    0x000000000000a604     0x662e _build/nrf51822_xxaa_epaper.c.o
- .debug_line    0x0000000000010c32      0xf05 _build/nrf51822_xxaa_main.c.o
- .debug_line    0x0000000000011b37     0x2bf9 _build/nrf51822_xxaa_SEGGER_RTT.c.o
- .debug_line    0x0000000000014730      0xcb3 _build/nrf51822_xxaa_diskio_blkdev.c.o
- .debug_line    0x00000000000153e3     0x74ef _build/nrf51822_xxaa_ff.c.o
- .debug_line    0x000000000001c8d2      0x511 _build/nrf51822_xxaa_system_nrf51.c.o
+ .debug_line    0x000000000000a604     0x669d _build/nrf51822_xxaa_epaper.c.o
+ .debug_line    0x0000000000010ca1      0xf01 _build/nrf51822_xxaa_main.c.o
+ .debug_line    0x0000000000011ba2     0x2bf9 _build/nrf51822_xxaa_SEGGER_RTT.c.o
+ .debug_line    0x000000000001479b      0xcb3 _build/nrf51822_xxaa_diskio_blkdev.c.o
+ .debug_line    0x000000000001544e     0x74ef _build/nrf51822_xxaa_ff.c.o
+ .debug_line    0x000000000001c93d      0x511 _build/nrf51822_xxaa_system_nrf51.c.o
 
 .debug_str      0x0000000000000000    0x3c9a4
  .debug_str     0x0000000000000000    0x33503 _build/nrf51822_xxaa_nrf_log_backend_serial.c.o

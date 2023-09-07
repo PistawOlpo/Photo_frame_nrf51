@@ -47,12 +47,13 @@ void spi_event_handler(nrf_drv_spi_evt_t const * p_event)
     spi_xfer_done = true;
 }
 bool spi_not_set =true;
-int IfInit(void) {
+int IfInit(void)
+{
     if (spi_not_set == false) return 0;
     nrf_gpio_cfg_output(EP_RST);
     nrf_gpio_cfg_output(EP_DC);
-    
-    nrf_gpio_cfg_input(EP_BUSY, NRF_GPIO_PIN_PULLDOWN); 
+
+    nrf_gpio_cfg_input(EP_BUSY, NRF_GPIO_PIN_PULLDOWN);
 
     nrf_drv_spi_config_t spi_config = NRF_DRV_SPI_DEFAULT_CONFIG;
     spi_config.frequency = NRF_SPI_FREQ_125K;
@@ -61,30 +62,32 @@ int IfInit(void) {
     spi_config.mosi_pin = EP_MOSI_PIN;
     spi_config.sck_pin  = EP_SCK_PIN;
     APP_ERROR_CHECK(nrf_drv_spi_init(&spi, &spi_config, spi_event_handler));
-    spi_not_set=false;    
+    spi_not_set=false;
     return 0;
 }
 /**
  *  @brief: basic function for sending commands
  */
-void SpiTransfer(u_int8_t data) {
+void SpiTransfer(u_int8_t data)
+{
     nrf_gpio_pin_clear(EP_CS_PIN);
 
     spi_xfer_done = false;
 
     (nrf_drv_spi_transfer(&spi, &data, 1,NULL, 0));
-    while (!spi_xfer_done)
-        {
-            __WFE();
-        }
+    while (!spi_xfer_done) {
+        __WFE();
+    }
     nrf_gpio_pin_set(EP_CS_PIN);
 }
-void Epd_SendCommand(u_int8_t command) {
+void Epd_SendCommand(u_int8_t command)
+{
     nrf_gpio_pin_clear(EP_DC);
     SpiTransfer(command);
 }
-void Epd_SendData(u_int8_t data) {
-     nrf_gpio_pin_set(EP_DC);
+void Epd_SendData(u_int8_t data)
+{
+    nrf_gpio_pin_set(EP_DC);
     SpiTransfer(data);
 }
 
@@ -94,22 +97,24 @@ void Epd_BusyHigh(void)// If BUSYN=0 then waiting
         nrf_delay_ms(10);
     }
 }
-void Epd_Reset(void) {
+void Epd_Reset(void)
+{
     nrf_gpio_pin_set(EP_RST);
-    nrf_delay_ms(200);   
-    nrf_gpio_pin_clear(EP_RST);           //module reset    
+    nrf_delay_ms(200);
+    nrf_gpio_pin_clear(EP_RST);           //module reset
     nrf_delay_ms(10);
     nrf_gpio_pin_set(EP_RST);
-    nrf_delay_ms(200);    
+    nrf_delay_ms(200);
 }
-int Epd_Init(void) {
+int Epd_Init(void)
+{
     if (IfInit() != 0) {
         return -1;
     }
     Epd_Reset();
     nrf_delay_ms(200);
     Epd_BusyHigh();
-    
+
     Epd_SendCommand(0xAA);    // CMDH
     Epd_SendData(0x49);
     Epd_SendData(0x55);
@@ -134,7 +139,7 @@ int Epd_Init(void) {
     Epd_SendData(0x00);
     Epd_SendData(0x54);
     Epd_SendData(0x00);
-    Epd_SendData(0x44); 
+    Epd_SendData(0x44);
 
     Epd_SendCommand(0x05);
     Epd_SendData(0x40);
@@ -174,11 +179,11 @@ int Epd_Init(void) {
     Epd_SendCommand(0x61);
     Epd_SendData(0x03);
     Epd_SendData(0x20);
-    Epd_SendData(0x01); 
+    Epd_SendData(0x01);
     Epd_SendData(0xE0);
 
     Epd_SendCommand(0x82);
-    Epd_SendData(0x1E); 
+    Epd_SendData(0x1E);
 
     Epd_SendCommand(0x84);
     Epd_SendData(0x00);
@@ -190,21 +195,22 @@ int Epd_Init(void) {
     Epd_SendData(0x2F);
 
     Epd_SendCommand(0xE0);   // CCSET
-    Epd_SendData(0x00); 
+    Epd_SendData(0x00);
 
     Epd_SendCommand(0xE6);   // TSSET
     Epd_SendData(0x00);
 
     return 0;
 }
-void Epd_TurnOnDisplay(void) {
+void Epd_TurnOnDisplay(void)
+{
     Epd_SendCommand(0x04);  // POWER_ON
     Epd_BusyHigh();
-    
+
     Epd_SendCommand(0x12);  // DISPLAY_REFRESH
     Epd_SendData(0x00);
     Epd_BusyHigh();
-    
+
     Epd_SendCommand(0x02);  // POWER_OFF
     Epd_SendData(0x00);
     Epd_BusyHigh();
@@ -213,8 +219,8 @@ void Epd_TurnOnDisplay(void) {
 function :  Sends the part image buffer in RAM to e-Paper and displays
 parameter:
 ******************************************************************************/
-void Epd_Display_part(const UBYTE *image, UWORD xstart, UWORD ystart, 
-                                        UWORD image_width, UWORD image_heigh)
+void Epd_Display_part(const UBYTE *image, UWORD xstart, UWORD ystart,
+                      UWORD image_width, UWORD image_heigh)
 {
     unsigned long i,j;
 
@@ -222,12 +228,11 @@ void Epd_Display_part(const UBYTE *image, UWORD xstart, UWORD ystart,
     for(i=0; i<EPD_HEIGHT; i++) {
         for(j=0; j< EPD_WIDTH/2; j++) {
             if(i<image_heigh+ystart && i>=ystart && j<(image_width+xstart)/2 && j>=xstart/2) {
-              Epd_SendData(image[(j-xstart/2) + (image_width/2*(i-ystart))]);
+                Epd_SendData(image[(j-xstart/2) + (image_width/2*(i-ystart))]);
+            } else {
+                Epd_SendData(0x11);
             }
-			else {
-				Epd_SendData(0x11);
-			}
-		}
+        }
     }
 
     Epd_TurnOnDisplay();
@@ -240,9 +245,10 @@ parameter:
 void Epd_Show7Block(void)
 {
     unsigned long i, j, k;
-    unsigned char const Color_seven[8] = 
-    {EPD_7IN3F_BLACK, EPD_7IN3F_BLUE, EPD_7IN3F_GREEN, EPD_7IN3F_ORANGE,
-    EPD_7IN3F_RED, EPD_7IN3F_YELLOW, EPD_7IN3F_WHITE, EPD_7IN3F_WHITE};
+    unsigned char const Color_seven[8] = {
+        EPD_7IN3F_BLACK, EPD_7IN3F_BLUE, EPD_7IN3F_GREEN, EPD_7IN3F_ORANGE,
+        EPD_7IN3F_RED, EPD_7IN3F_YELLOW, EPD_7IN3F_WHITE, EPD_7IN3F_WHITE
+    };
 
     Epd_SendCommand(0x10);
     for(i=0; i<240; i++) {
@@ -252,7 +258,7 @@ void Epd_Show7Block(void)
             }
         }
     }
-    
+
     for(i=0; i<240; i++) {
         for(k = 4 ; k < 8; k ++) {
             for(j = 0 ; j < 100; j ++) {
@@ -263,32 +269,34 @@ void Epd_Show7Block(void)
     Epd_TurnOnDisplay();
 }
 /******************************************************************************
-function : 
+function :
       Clear screen
 ******************************************************************************/
-void Epd_Clear(UBYTE color) {
+void Epd_Clear(UBYTE color)
+{
     Epd_SendCommand(0x10);
     for(int i=0; i<EPD_WIDTH/2; i++) {
         for(int j=0; j<EPD_HEIGHT; j++) {
             Epd_SendData((color<<4)|color);
-		}
-	}
-    
+        }
+    }
+
     Epd_TurnOnDisplay();
 }
 
 /**
- *  @brief: After this command is transmitted, the chip would enter the 
- *          deep-sleep mode to save power. 
- *          The deep sleep mode would return to standby by hardware reset. 
+ *  @brief: After this command is transmitted, the chip would enter the
+ *          deep-sleep mode to save power.
+ *          The deep sleep mode would return to standby by hardware reset.
  *          The only one parameter is a check code, the command would be
  *          You can use EPD_Reset() to awaken
  */
-void Epd_Sleep(void) {
+void Epd_Sleep(void)
+{
     Epd_SendCommand(0x07);
     Epd_SendData(0xA5);
     nrf_delay_ms(100);
-	nrf_gpio_pin_clear(EP_RST); // Reset
+    nrf_gpio_pin_clear(EP_RST); // Reset
 }
 
 
