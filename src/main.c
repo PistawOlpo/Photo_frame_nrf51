@@ -107,7 +107,7 @@ NRF_BLOCK_DEV_SDC_DEFINE(
 /**
  * @brief Function for FAFTS usage.
  **/
-static void fatfs_example()
+static void fatfs_read_display()
 {
     static FATFS fs;
     static DIR dir,dj;
@@ -216,12 +216,8 @@ static void fatfs_example()
 
 int main(void)
 {
-
     APP_ERROR_CHECK(NRF_LOG_INIT(NULL));
-
-    NRF_LOG_INFO("SPI test\r\n");
-
-    
+       
     Epd_Reset();
     if (Epd_Init() != 0) {
         NRF_LOG_INFO("e-Paper init failed\r\n");
@@ -232,7 +228,7 @@ int main(void)
     
     while (true)
     {
-        fatfs_example();
+        fatfs_read_display();
     }
     NRF_LOG_INFO("\r\nEnd of program.\r\n\r\n");
 }

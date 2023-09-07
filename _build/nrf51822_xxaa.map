@@ -3007,7 +3007,7 @@ RAM              0x0000000020000000 0x0000000000004000 xrw
 Linker script and memory map
 
 
-.text           0x0000000000000000     0x751c
+.text           0x0000000000000000     0x74fc
  *(.isr_vector)
  .isr_vector    0x0000000000000000       0xc0 _build/nrf51822_xxaa_gcc_startup_nrf51.S.o
                 0x0000000000000000                __isr_vector
@@ -3136,191 +3136,191 @@ Linker script and memory map
                 0x00000000000036d8       0xcc _build/nrf51822_xxaa_epaper.c.o
                 0x00000000000036d8                Epd_Sleep
  .text.startup.main
-                0x00000000000037a4      0x304 _build/nrf51822_xxaa_main.c.o
+                0x00000000000037a4      0x2f8 _build/nrf51822_xxaa_main.c.o
                 0x00000000000037a4                main
  .text.SEGGER_RTT_WriteNoLock
-                0x0000000000003aa8      0x198 _build/nrf51822_xxaa_SEGGER_RTT.c.o
-                0x0000000000003aa8                SEGGER_RTT_WriteNoLock
+                0x0000000000003a9c      0x198 _build/nrf51822_xxaa_SEGGER_RTT.c.o
+                0x0000000000003a9c                SEGGER_RTT_WriteNoLock
  .text.SEGGER_RTT_Init
-                0x0000000000003c40       0x64 _build/nrf51822_xxaa_SEGGER_RTT.c.o
-                0x0000000000003c40                SEGGER_RTT_Init
+                0x0000000000003c34       0x64 _build/nrf51822_xxaa_SEGGER_RTT.c.o
+                0x0000000000003c34                SEGGER_RTT_Init
  .text.block_dev_handler
-                0x0000000000003ca4       0x24 _build/nrf51822_xxaa_diskio_blkdev.c.o
+                0x0000000000003c98       0x24 _build/nrf51822_xxaa_diskio_blkdev.c.o
  .text.default_wait_func
-                0x0000000000003cc8        0x4 _build/nrf51822_xxaa_diskio_blkdev.c.o
+                0x0000000000003cbc        0x4 _build/nrf51822_xxaa_diskio_blkdev.c.o
  .text.disk_initialize
-                0x0000000000003ccc       0x80 _build/nrf51822_xxaa_diskio_blkdev.c.o
-                0x0000000000003ccc                disk_initialize
+                0x0000000000003cc0       0x80 _build/nrf51822_xxaa_diskio_blkdev.c.o
+                0x0000000000003cc0                disk_initialize
  .text.disk_status
-                0x0000000000003d4c       0x28 _build/nrf51822_xxaa_diskio_blkdev.c.o
-                0x0000000000003d4c                disk_status
+                0x0000000000003d40       0x28 _build/nrf51822_xxaa_diskio_blkdev.c.o
+                0x0000000000003d40                disk_status
  .text.disk_read
-                0x0000000000003d74       0x80 _build/nrf51822_xxaa_diskio_blkdev.c.o
-                0x0000000000003d74                disk_read
+                0x0000000000003d68       0x80 _build/nrf51822_xxaa_diskio_blkdev.c.o
+                0x0000000000003d68                disk_read
  .text.disk_write
-                0x0000000000003df4       0x8c _build/nrf51822_xxaa_diskio_blkdev.c.o
-                0x0000000000003df4                disk_write
+                0x0000000000003de8       0x8c _build/nrf51822_xxaa_diskio_blkdev.c.o
+                0x0000000000003de8                disk_write
  .text.disk_ioctl
-                0x0000000000003e80       0x9c _build/nrf51822_xxaa_diskio_blkdev.c.o
-                0x0000000000003e80                disk_ioctl
+                0x0000000000003e74       0x9c _build/nrf51822_xxaa_diskio_blkdev.c.o
+                0x0000000000003e74                disk_ioctl
  .text.diskio_blockdev_register
-                0x0000000000003f1c       0x14 _build/nrf51822_xxaa_diskio_blkdev.c.o
-                0x0000000000003f1c                diskio_blockdev_register
+                0x0000000000003f10       0x14 _build/nrf51822_xxaa_diskio_blkdev.c.o
+                0x0000000000003f10                diskio_blockdev_register
  .text.get_fileinfo.part.0
-                0x0000000000003f30      0x140 _build/nrf51822_xxaa_ff.c.o
+                0x0000000000003f24      0x140 _build/nrf51822_xxaa_ff.c.o
  .text.pattern_matching
-                0x0000000000004070      0x1b4 _build/nrf51822_xxaa_ff.c.o
+                0x0000000000004064      0x1b4 _build/nrf51822_xxaa_ff.c.o
  .text.check_fs
-                0x0000000000004224       0xb4 _build/nrf51822_xxaa_ff.c.o
+                0x0000000000004218       0xb4 _build/nrf51822_xxaa_ff.c.o
  .text.move_window.part.0
-                0x00000000000042d8       0x80 _build/nrf51822_xxaa_ff.c.o
+                0x00000000000042cc       0x80 _build/nrf51822_xxaa_ff.c.o
  .text.find_volume
-                0x0000000000004358      0x478 _build/nrf51822_xxaa_ff.c.o
+                0x000000000000434c      0x478 _build/nrf51822_xxaa_ff.c.o
  .text.put_fat.part.0
-                0x00000000000047d0      0x144 _build/nrf51822_xxaa_ff.c.o
+                0x00000000000047c4      0x144 _build/nrf51822_xxaa_ff.c.o
  .text.get_fat.isra.0
-                0x0000000000004914       0xf4 _build/nrf51822_xxaa_ff.c.o
+                0x0000000000004908       0xf4 _build/nrf51822_xxaa_ff.c.o
  .text.dir_read.constprop.0
-                0x0000000000004a08      0x170 _build/nrf51822_xxaa_ff.c.o
- .text.sync_fs  0x0000000000004b78      0x168 _build/nrf51822_xxaa_ff.c.o
+                0x00000000000049fc      0x170 _build/nrf51822_xxaa_ff.c.o
+ .text.sync_fs  0x0000000000004b6c      0x168 _build/nrf51822_xxaa_ff.c.o
  .text.create_chain
-                0x0000000000004ce0      0x1f4 _build/nrf51822_xxaa_ff.c.o
+                0x0000000000004cd4      0x1f4 _build/nrf51822_xxaa_ff.c.o
  .text.dir_sdi.constprop.0
-                0x0000000000004ed4      0x18c _build/nrf51822_xxaa_ff.c.o
+                0x0000000000004ec8      0x18c _build/nrf51822_xxaa_ff.c.o
  .text.follow_path
-                0x0000000000005060      0x440 _build/nrf51822_xxaa_ff.c.o
+                0x0000000000005054      0x440 _build/nrf51822_xxaa_ff.c.o
  .text.remove_chain
-                0x00000000000054a0      0x1a4 _build/nrf51822_xxaa_ff.c.o
+                0x0000000000005494      0x1a4 _build/nrf51822_xxaa_ff.c.o
  .text.dir_register
-                0x0000000000005644      0x440 _build/nrf51822_xxaa_ff.c.o
- .text.f_mount  0x0000000000005a84       0x70 _build/nrf51822_xxaa_ff.c.o
-                0x0000000000005a84                f_mount
- .text.f_open   0x0000000000005af4      0x2f0 _build/nrf51822_xxaa_ff.c.o
-                0x0000000000005af4                f_open
- .text.f_read   0x0000000000005de4      0x29c _build/nrf51822_xxaa_ff.c.o
-                0x0000000000005de4                f_read
- .text.f_close  0x0000000000006080       0xf0 _build/nrf51822_xxaa_ff.c.o
-                0x0000000000006080                f_close
+                0x0000000000005638      0x440 _build/nrf51822_xxaa_ff.c.o
+ .text.f_mount  0x0000000000005a78       0x70 _build/nrf51822_xxaa_ff.c.o
+                0x0000000000005a78                f_mount
+ .text.f_open   0x0000000000005ae8      0x2f0 _build/nrf51822_xxaa_ff.c.o
+                0x0000000000005ae8                f_open
+ .text.f_read   0x0000000000005dd8      0x29c _build/nrf51822_xxaa_ff.c.o
+                0x0000000000005dd8                f_read
+ .text.f_close  0x0000000000006074       0xf0 _build/nrf51822_xxaa_ff.c.o
+                0x0000000000006074                f_close
  .text.f_opendir
-                0x0000000000006170       0x84 _build/nrf51822_xxaa_ff.c.o
-                0x0000000000006170                f_opendir
+                0x0000000000006164       0x84 _build/nrf51822_xxaa_ff.c.o
+                0x0000000000006164                f_opendir
  .text.f_findnext
-                0x00000000000061f4      0x208 _build/nrf51822_xxaa_ff.c.o
-                0x00000000000061f4                f_findnext
+                0x00000000000061e8      0x208 _build/nrf51822_xxaa_ff.c.o
+                0x00000000000061e8                f_findnext
  .text.f_findfirst
-                0x00000000000063fc       0x94 _build/nrf51822_xxaa_ff.c.o
-                0x00000000000063fc                f_findfirst
- .text          0x0000000000006490       0x4c _build/nrf51822_xxaa_gcc_startup_nrf51.S.o
-                0x0000000000006490                Reset_Handler
-                0x00000000000064d0                NMI_Handler
-                0x00000000000064d2                HardFault_Handler
-                0x00000000000064d4                SVC_Handler
-                0x00000000000064d6                PendSV_Handler
-                0x00000000000064d8                SysTick_Handler
-                0x00000000000064da                TIMER2_IRQHandler
-                0x00000000000064da                RTC0_IRQHandler
-                0x00000000000064da                GPIOTE_IRQHandler
-                0x00000000000064da                POWER_CLOCK_IRQHandler
-                0x00000000000064da                RADIO_IRQHandler
-                0x00000000000064da                LPCOMP_IRQHandler
-                0x00000000000064da                SWI4_IRQHandler
-                0x00000000000064da                TEMP_IRQHandler
-                0x00000000000064da                QDEC_IRQHandler
-                0x00000000000064da                SWI5_IRQHandler
-                0x00000000000064da                TIMER0_IRQHandler
-                0x00000000000064da                SWI0_IRQHandler
-                0x00000000000064da                TIMER1_IRQHandler
-                0x00000000000064da                ECB_IRQHandler
-                0x00000000000064da                Default_Handler
-                0x00000000000064da                ADC_IRQHandler
-                0x00000000000064da                SWI3_IRQHandler
-                0x00000000000064da                CCM_AAR_IRQHandler
-                0x00000000000064da                WDT_IRQHandler
-                0x00000000000064da                SWI2_IRQHandler
-                0x00000000000064da                RNG_IRQHandler
-                0x00000000000064da                RTC1_IRQHandler
-                0x00000000000064da                SWI1_IRQHandler
+                0x00000000000063f0       0x94 _build/nrf51822_xxaa_ff.c.o
+                0x00000000000063f0                f_findfirst
+ .text          0x0000000000006484       0x4c _build/nrf51822_xxaa_gcc_startup_nrf51.S.o
+                0x0000000000006484                Reset_Handler
+                0x00000000000064c4                NMI_Handler
+                0x00000000000064c6                HardFault_Handler
+                0x00000000000064c8                SVC_Handler
+                0x00000000000064ca                PendSV_Handler
+                0x00000000000064cc                SysTick_Handler
+                0x00000000000064ce                TIMER2_IRQHandler
+                0x00000000000064ce                RTC0_IRQHandler
+                0x00000000000064ce                GPIOTE_IRQHandler
+                0x00000000000064ce                POWER_CLOCK_IRQHandler
+                0x00000000000064ce                RADIO_IRQHandler
+                0x00000000000064ce                LPCOMP_IRQHandler
+                0x00000000000064ce                SWI4_IRQHandler
+                0x00000000000064ce                TEMP_IRQHandler
+                0x00000000000064ce                QDEC_IRQHandler
+                0x00000000000064ce                SWI5_IRQHandler
+                0x00000000000064ce                TIMER0_IRQHandler
+                0x00000000000064ce                SWI0_IRQHandler
+                0x00000000000064ce                TIMER1_IRQHandler
+                0x00000000000064ce                ECB_IRQHandler
+                0x00000000000064ce                Default_Handler
+                0x00000000000064ce                ADC_IRQHandler
+                0x00000000000064ce                SWI3_IRQHandler
+                0x00000000000064ce                CCM_AAR_IRQHandler
+                0x00000000000064ce                WDT_IRQHandler
+                0x00000000000064ce                SWI2_IRQHandler
+                0x00000000000064ce                RNG_IRQHandler
+                0x00000000000064ce                RTC1_IRQHandler
+                0x00000000000064ce                SWI1_IRQHandler
  .text.SystemInit
-                0x00000000000064dc       0xe0 _build/nrf51822_xxaa_system_nrf51.c.o
-                0x00000000000064dc                SystemInit
- .text          0x00000000000065bc      0x114 /home/pistaw/projects/nrf51822/toolchain/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v6-m/nofp/libgcc.a(_udivsi3.o)
-                0x00000000000065bc                __udivsi3
-                0x00000000000065bc                __aeabi_uidiv
-                0x00000000000066c8                __aeabi_uidivmod
- .text          0x00000000000066d0        0x4 /home/pistaw/projects/nrf51822/toolchain/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v6-m/nofp/libgcc.a(_dvmd_tls.o)
-                0x00000000000066d0                __aeabi_ldiv0
-                0x00000000000066d0                __aeabi_idiv0
- .text.memcpy   0x00000000000066d4       0x12 /home/pistaw/projects/nrf51822/toolchain/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(lib_a-memcpy-stub.o)
-                0x00000000000066d4                memcpy
- *fill*         0x00000000000066e6        0x2 
+                0x00000000000064d0       0xe0 _build/nrf51822_xxaa_system_nrf51.c.o
+                0x00000000000064d0                SystemInit
+ .text          0x00000000000065b0      0x114 /home/pistaw/projects/nrf51822/toolchain/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v6-m/nofp/libgcc.a(_udivsi3.o)
+                0x00000000000065b0                __udivsi3
+                0x00000000000065b0                __aeabi_uidiv
+                0x00000000000066bc                __aeabi_uidivmod
+ .text          0x00000000000066c4        0x4 /home/pistaw/projects/nrf51822/toolchain/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v6-m/nofp/libgcc.a(_dvmd_tls.o)
+                0x00000000000066c4                __aeabi_ldiv0
+                0x00000000000066c4                __aeabi_idiv0
+ .text.memcpy   0x00000000000066c8       0x12 /home/pistaw/projects/nrf51822/toolchain/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(lib_a-memcpy-stub.o)
+                0x00000000000066c8                memcpy
+ *fill*         0x00000000000066da        0x2 
  .text.snprintf
-                0x00000000000066e8       0x68 /home/pistaw/projects/nrf51822/toolchain/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(lib_a-snprintf.o)
-                0x00000000000066e8                snprintf
-                0x00000000000066e8                sniprintf
- .text.strcpy   0x0000000000006750       0x10 /home/pistaw/projects/nrf51822/toolchain/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(lib_a-strcpy.o)
-                0x0000000000006750                strcpy
- .text          0x0000000000006760        0xe /home/pistaw/projects/nrf51822/toolchain/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(lib_a-strlen.o)
-                0x0000000000006760                strlen
- .text.strncat  0x000000000000676e       0x2a /home/pistaw/projects/nrf51822/toolchain/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(lib_a-strncat.o)
-                0x000000000000676e                strncat
+                0x00000000000066dc       0x68 /home/pistaw/projects/nrf51822/toolchain/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(lib_a-snprintf.o)
+                0x00000000000066dc                snprintf
+                0x00000000000066dc                sniprintf
+ .text.strcpy   0x0000000000006744       0x10 /home/pistaw/projects/nrf51822/toolchain/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(lib_a-strcpy.o)
+                0x0000000000006744                strcpy
+ .text          0x0000000000006754        0xe /home/pistaw/projects/nrf51822/toolchain/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(lib_a-strlen.o)
+                0x0000000000006754                strlen
+ .text.strncat  0x0000000000006762       0x2a /home/pistaw/projects/nrf51822/toolchain/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(lib_a-strncat.o)
+                0x0000000000006762                strncat
  .text.__ssputs_r
-                0x0000000000006798       0xc4 /home/pistaw/projects/nrf51822/toolchain/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(lib_a-nano-svfprintf.o)
-                0x0000000000006798                __ssputs_r
+                0x000000000000678c       0xc4 /home/pistaw/projects/nrf51822/toolchain/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(lib_a-nano-svfprintf.o)
+                0x000000000000678c                __ssputs_r
  .text._svfprintf_r
-                0x000000000000685c      0x200 /home/pistaw/projects/nrf51822/toolchain/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(lib_a-nano-svfprintf.o)
-                0x000000000000685c                _svfprintf_r
-                0x000000000000685c                _svfiprintf_r
+                0x0000000000006850      0x200 /home/pistaw/projects/nrf51822/toolchain/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(lib_a-nano-svfprintf.o)
+                0x0000000000006850                _svfprintf_r
+                0x0000000000006850                _svfiprintf_r
  .text._printf_common
-                0x0000000000006a5c       0xde /home/pistaw/projects/nrf51822/toolchain/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(lib_a-nano-vfprintf_i.o)
-                0x0000000000006a5c                _printf_common
- *fill*         0x0000000000006b3a        0x2 
+                0x0000000000006a50       0xde /home/pistaw/projects/nrf51822/toolchain/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(lib_a-nano-vfprintf_i.o)
+                0x0000000000006a50                _printf_common
+ *fill*         0x0000000000006b2e        0x2 
  .text._printf_i
-                0x0000000000006b3c      0x224 /home/pistaw/projects/nrf51822/toolchain/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(lib_a-nano-vfprintf_i.o)
-                0x0000000000006b3c                _printf_i
- .text.memchr   0x0000000000006d60       0x16 /home/pistaw/projects/nrf51822/toolchain/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(lib_a-memchr-stub.o)
-                0x0000000000006d60                memchr
- .text.memmove  0x0000000000006d76       0x26 /home/pistaw/projects/nrf51822/toolchain/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(lib_a-memmove.o)
-                0x0000000000006d76                memmove
- .text._free_r  0x0000000000006d9c       0x94 /home/pistaw/projects/nrf51822/toolchain/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(lib_a-nano-freer.o)
-                0x0000000000006d9c                _free_r
+                0x0000000000006b30      0x224 /home/pistaw/projects/nrf51822/toolchain/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(lib_a-nano-vfprintf_i.o)
+                0x0000000000006b30                _printf_i
+ .text.memchr   0x0000000000006d54       0x16 /home/pistaw/projects/nrf51822/toolchain/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(lib_a-memchr-stub.o)
+                0x0000000000006d54                memchr
+ .text.memmove  0x0000000000006d6a       0x26 /home/pistaw/projects/nrf51822/toolchain/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(lib_a-memmove.o)
+                0x0000000000006d6a                memmove
+ .text._free_r  0x0000000000006d90       0x94 /home/pistaw/projects/nrf51822/toolchain/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(lib_a-nano-freer.o)
+                0x0000000000006d90                _free_r
  .text.sbrk_aligned
-                0x0000000000006e30       0x44 /home/pistaw/projects/nrf51822/toolchain/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(lib_a-nano-mallocr.o)
+                0x0000000000006e24       0x44 /home/pistaw/projects/nrf51822/toolchain/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(lib_a-nano-mallocr.o)
  .text._malloc_r
-                0x0000000000006e74       0xec /home/pistaw/projects/nrf51822/toolchain/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(lib_a-nano-mallocr.o)
-                0x0000000000006e74                _malloc_r
+                0x0000000000006e68       0xec /home/pistaw/projects/nrf51822/toolchain/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(lib_a-nano-mallocr.o)
+                0x0000000000006e68                _malloc_r
  .text._realloc_r
-                0x0000000000006f60       0x5e /home/pistaw/projects/nrf51822/toolchain/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(lib_a-nano-reallocr.o)
-                0x0000000000006f60                _realloc_r
- *fill*         0x0000000000006fbe        0x2 
- .text._sbrk_r  0x0000000000006fc0       0x24 /home/pistaw/projects/nrf51822/toolchain/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(lib_a-sbrkr.o)
-                0x0000000000006fc0                _sbrk_r
+                0x0000000000006f54       0x5e /home/pistaw/projects/nrf51822/toolchain/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(lib_a-nano-reallocr.o)
+                0x0000000000006f54                _realloc_r
+ *fill*         0x0000000000006fb2        0x2 
+ .text._sbrk_r  0x0000000000006fb4       0x24 /home/pistaw/projects/nrf51822/toolchain/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(lib_a-sbrkr.o)
+                0x0000000000006fb4                _sbrk_r
  .text.__malloc_lock
-                0x0000000000006fe4       0x10 /home/pistaw/projects/nrf51822/toolchain/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(lib_a-mlock.o)
-                0x0000000000006fe4                __malloc_lock
+                0x0000000000006fd8       0x10 /home/pistaw/projects/nrf51822/toolchain/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(lib_a-mlock.o)
+                0x0000000000006fd8                __malloc_lock
  .text.__malloc_unlock
-                0x0000000000006ff4       0x10 /home/pistaw/projects/nrf51822/toolchain/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(lib_a-mlock.o)
-                0x0000000000006ff4                __malloc_unlock
+                0x0000000000006fe8       0x10 /home/pistaw/projects/nrf51822/toolchain/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(lib_a-mlock.o)
+                0x0000000000006fe8                __malloc_unlock
  .text._malloc_usable_size_r
-                0x0000000000007004       0x10 /home/pistaw/projects/nrf51822/toolchain/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(lib_a-nano-msizer.o)
-                0x0000000000007004                _malloc_usable_size_r
+                0x0000000000006ff8       0x10 /home/pistaw/projects/nrf51822/toolchain/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(lib_a-nano-msizer.o)
+                0x0000000000006ff8                _malloc_usable_size_r
  .text.__retarget_lock_acquire_recursive
-                0x0000000000007014        0x2 /home/pistaw/projects/nrf51822/toolchain/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(lib_a-lock.o)
-                0x0000000000007014                __retarget_lock_acquire_recursive
+                0x0000000000007008        0x2 /home/pistaw/projects/nrf51822/toolchain/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(lib_a-lock.o)
+                0x0000000000007008                __retarget_lock_acquire_recursive
  .text.__retarget_lock_release_recursive
-                0x0000000000007016        0x2 /home/pistaw/projects/nrf51822/toolchain/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(lib_a-lock.o)
-                0x0000000000007016                __retarget_lock_release_recursive
- .text          0x0000000000007018       0x14 /home/pistaw/projects/nrf51822/toolchain/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v6-m/nofp/libgcc.a(_thumb1_case_shi.o)
-                0x0000000000007018                __gnu_thumb1_case_shi
- .text._sbrk    0x000000000000702c       0x1c /home/pistaw/projects/nrf51822/toolchain/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libnosys.a(sbrk.o)
-                0x000000000000702c                _sbrk
+                0x000000000000700a        0x2 /home/pistaw/projects/nrf51822/toolchain/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(lib_a-lock.o)
+                0x000000000000700a                __retarget_lock_release_recursive
+ .text          0x000000000000700c       0x14 /home/pistaw/projects/nrf51822/toolchain/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v6-m/nofp/libgcc.a(_thumb1_case_shi.o)
+                0x000000000000700c                __gnu_thumb1_case_shi
+ .text._sbrk    0x0000000000007020       0x1c /home/pistaw/projects/nrf51822/toolchain/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libnosys.a(sbrk.o)
+                0x0000000000007020                _sbrk
  *(.init)
- .init          0x0000000000007048        0x4 /home/pistaw/projects/nrf51822/toolchain/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v6-m/nofp/crti.o
-                0x0000000000007048                _init
- .init          0x000000000000704c        0x8 /home/pistaw/projects/nrf51822/toolchain/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v6-m/nofp/crtn.o
+ .init          0x000000000000703c        0x4 /home/pistaw/projects/nrf51822/toolchain/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v6-m/nofp/crti.o
+                0x000000000000703c                _init
+ .init          0x0000000000007040        0x8 /home/pistaw/projects/nrf51822/toolchain/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v6-m/nofp/crtn.o
  *(.fini)
- .fini          0x0000000000007054        0x4 /home/pistaw/projects/nrf51822/toolchain/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v6-m/nofp/crti.o
-                0x0000000000007054                _fini
- .fini          0x0000000000007058        0x8 /home/pistaw/projects/nrf51822/toolchain/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v6-m/nofp/crtn.o
+ .fini          0x0000000000007048        0x4 /home/pistaw/projects/nrf51822/toolchain/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v6-m/nofp/crti.o
+                0x0000000000007048                _fini
+ .fini          0x000000000000704c        0x8 /home/pistaw/projects/nrf51822/toolchain/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v6-m/nofp/crtn.o
  *crtbegin.o(.ctors)
  *crtbegin?.o(.ctors)
  *(EXCLUDE_FILE(*crtend.o *crtend?.o) .ctors)
@@ -3333,81 +3333,81 @@ Linker script and memory map
  *(.dtors)
  *(.rodata*)
  .rodata._global_impure_ptr
-                0x0000000000007060        0x4 /home/pistaw/projects/nrf51822/toolchain/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(lib_a-impure.o)
-                0x0000000000007060                _global_impure_ptr
+                0x0000000000007054        0x4 /home/pistaw/projects/nrf51822/toolchain/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(lib_a-impure.o)
+                0x0000000000007054                _global_impure_ptr
  .rodata.nrf_log_backend_serial_std_handler.str1.4
-                0x0000000000007064        0x7 _build/nrf51822_xxaa_nrf_log_backend_serial.c.o
- *fill*         0x000000000000706b        0x1 
+                0x0000000000007058        0x7 _build/nrf51822_xxaa_nrf_log_backend_serial.c.o
+ *fill*         0x000000000000705f        0x1 
  .rodata.nrf_log_backend_serial_std_handler
-                0x000000000000706c       0x38 _build/nrf51822_xxaa_nrf_log_backend_serial.c.o
+                0x0000000000007060       0x38 _build/nrf51822_xxaa_nrf_log_backend_serial.c.o
  .rodata.app_error_fault_handler.str1.4
-                0x00000000000070a4       0x18 _build/nrf51822_xxaa_app_error_weak.c.o
+                0x0000000000007098       0x18 _build/nrf51822_xxaa_app_error_weak.c.o
  .rodata.spi_handler
-                0x00000000000070bc       0x90 _build/nrf51822_xxaa_app_sdcard.c.o
- .rodata.m_spi  0x000000000000714c        0x8 _build/nrf51822_xxaa_app_sdcard.c.o
+                0x00000000000070b0       0x90 _build/nrf51822_xxaa_app_sdcard.c.o
+ .rodata.m_spi  0x0000000000007140        0x8 _build/nrf51822_xxaa_app_sdcard.c.o
  .rodata.nrf_block_device_sdc_ops
-                0x0000000000007154       0x18 _build/nrf51822_xxaa_nrf_block_dev_sdc.c.o
-                0x0000000000007154                nrf_block_device_sdc_ops
- .rodata        0x000000000000716c       0x18 _build/nrf51822_xxaa_epaper.c.o
- .rodata.spi    0x0000000000007184        0x8 _build/nrf51822_xxaa_epaper.c.o
+                0x0000000000007148       0x18 _build/nrf51822_xxaa_nrf_block_dev_sdc.c.o
+                0x0000000000007148                nrf_block_device_sdc_ops
+ .rodata        0x0000000000007160       0x18 _build/nrf51822_xxaa_epaper.c.o
+ .rodata.spi    0x0000000000007178        0x8 _build/nrf51822_xxaa_epaper.c.o
  .rodata.main.str1.4
-                0x000000000000718c      0x1e5 _build/nrf51822_xxaa_main.c.o
-                                        0x1ed (size before relaxing)
- *fill*         0x0000000000007371        0x3 
+                0x0000000000007180      0x1d1 _build/nrf51822_xxaa_main.c.o
+                                        0x1d9 (size before relaxing)
+ *fill*         0x0000000000007351        0x3 
  .rodata.str1.4
-                0x0000000000007374       0x11 _build/nrf51822_xxaa_main.c.o
- *fill*         0x0000000000007385        0x3 
- .rodata        0x0000000000007388       0x16 _build/nrf51822_xxaa_main.c.o
- *fill*         0x000000000000739e        0x2 
+                0x0000000000007354       0x11 _build/nrf51822_xxaa_main.c.o
+ *fill*         0x0000000000007365        0x3 
+ .rodata        0x0000000000007368       0x16 _build/nrf51822_xxaa_main.c.o
+ *fill*         0x000000000000737e        0x2 
  .rodata.m_block_dev_sdc
-                0x00000000000073a0       0x1c _build/nrf51822_xxaa_main.c.o
+                0x0000000000007380       0x1c _build/nrf51822_xxaa_main.c.o
  .rodata.SEGGER_RTT_ReadNoLock.str1.4
-                0x00000000000073bc       0x17 _build/nrf51822_xxaa_SEGGER_RTT.c.o
- *fill*         0x00000000000073d3        0x1 
+                0x000000000000739c       0x17 _build/nrf51822_xxaa_SEGGER_RTT.c.o
+ *fill*         0x00000000000073b3        0x1 
  .rodata.follow_path.str1.4
-                0x00000000000073d4        0xf _build/nrf51822_xxaa_ff.c.o
+                0x00000000000073b4        0xf _build/nrf51822_xxaa_ff.c.o
  .rodata._ctype_
-                0x00000000000073e3      0x101 /home/pistaw/projects/nrf51822/toolchain/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(lib_a-ctype_.o)
-                0x00000000000073e3                _ctype_
+                0x00000000000073c3      0x101 /home/pistaw/projects/nrf51822/toolchain/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(lib_a-ctype_.o)
+                0x00000000000073c3                _ctype_
  .rodata._svfprintf_r.str1.1
-                0x00000000000074e4       0x11 /home/pistaw/projects/nrf51822/toolchain/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(lib_a-nano-svfprintf.o)
+                0x00000000000074c4       0x11 /home/pistaw/projects/nrf51822/toolchain/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(lib_a-nano-svfprintf.o)
  .rodata._printf_i.str1.1
-                0x00000000000074f5       0x22 /home/pistaw/projects/nrf51822/toolchain/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(lib_a-nano-vfprintf_i.o)
+                0x00000000000074d5       0x22 /home/pistaw/projects/nrf51822/toolchain/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(lib_a-nano-vfprintf_i.o)
  *(.eh_frame*)
- *fill*         0x0000000000007517        0x1 
- .eh_frame      0x0000000000007518        0x0 /home/pistaw/projects/nrf51822/toolchain/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v6-m/nofp/crtbegin.o
- .eh_frame      0x0000000000007518        0x4 /home/pistaw/projects/nrf51822/toolchain/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v6-m/nofp/crtend.o
+ *fill*         0x00000000000074f7        0x1 
+ .eh_frame      0x00000000000074f8        0x0 /home/pistaw/projects/nrf51822/toolchain/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v6-m/nofp/crtbegin.o
+ .eh_frame      0x00000000000074f8        0x4 /home/pistaw/projects/nrf51822/toolchain/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v6-m/nofp/crtend.o
 
-.glue_7         0x000000000000751c        0x0
- .glue_7        0x000000000000751c        0x0 linker stubs
+.glue_7         0x00000000000074fc        0x0
+ .glue_7        0x00000000000074fc        0x0 linker stubs
 
-.glue_7t        0x000000000000751c        0x0
- .glue_7t       0x000000000000751c        0x0 linker stubs
+.glue_7t        0x00000000000074fc        0x0
+ .glue_7t       0x00000000000074fc        0x0 linker stubs
 
-.vfp11_veneer   0x000000000000751c        0x0
- .vfp11_veneer  0x000000000000751c        0x0 linker stubs
+.vfp11_veneer   0x00000000000074fc        0x0
+ .vfp11_veneer  0x00000000000074fc        0x0 linker stubs
 
-.v4_bx          0x000000000000751c        0x0
- .v4_bx         0x000000000000751c        0x0 linker stubs
+.v4_bx          0x00000000000074fc        0x0
+ .v4_bx         0x00000000000074fc        0x0 linker stubs
 
-.iplt           0x000000000000751c        0x0
- .iplt          0x000000000000751c        0x0 /home/pistaw/projects/nrf51822/toolchain/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v6-m/nofp/crtbegin.o
+.iplt           0x00000000000074fc        0x0
+ .iplt          0x00000000000074fc        0x0 /home/pistaw/projects/nrf51822/toolchain/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v6-m/nofp/crtbegin.o
 
 .ARM.extab
  *(.ARM.extab* .gnu.linkonce.armextab.*)
-                0x000000000000751c                __exidx_start = .
+                0x00000000000074fc                __exidx_start = .
 
-.ARM.exidx      0x000000000000751c        0x8
+.ARM.exidx      0x00000000000074fc        0x8
  *(.ARM.exidx* .gnu.linkonce.armexidx.*)
- .ARM.exidx     0x000000000000751c        0x8 /home/pistaw/projects/nrf51822/toolchain/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/crt0.o
+ .ARM.exidx     0x00000000000074fc        0x8 /home/pistaw/projects/nrf51822/toolchain/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/crt0.o
                                          0x10 (size before relaxing)
-                0x0000000000007524                __exidx_end = .
-                0x0000000000007524                __etext = .
+                0x0000000000007504                __exidx_end = .
+                0x0000000000007504                __etext = .
 
-.rel.dyn        0x0000000000007524        0x0
- .rel.iplt      0x0000000000007524        0x0 /home/pistaw/projects/nrf51822/toolchain/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v6-m/nofp/crtbegin.o
+.rel.dyn        0x0000000000007504        0x0
+ .rel.iplt      0x0000000000007504        0x0 /home/pistaw/projects/nrf51822/toolchain/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v6-m/nofp/crtbegin.o
 
-.data           0x0000000020000000       0x80 load address 0x0000000000007524
+.data           0x0000000020000000       0x80 load address 0x0000000000007504
                 0x0000000020000000                __data_start__ = .
  *(vtable)
  *(.data*)
@@ -3497,7 +3497,7 @@ LOAD /home/pistaw/projects/nrf51822/toolchain/gcc-arm-none-eabi-10.3-2021.10/bin
 LOAD /home/pistaw/projects/nrf51822/toolchain/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libnosys.a
 END GROUP
 
-.igot.plt       0x0000000020000080        0x0 load address 0x00000000000075a4
+.igot.plt       0x0000000020000080        0x0 load address 0x0000000000007584
  .igot.plt      0x0000000020000080        0x0 /home/pistaw/projects/nrf51822/toolchain/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v6-m/nofp/crtbegin.o
 
 .fs_data        0x0000000020000080        0x0
@@ -3510,7 +3510,7 @@ END GROUP
  *(.pwr_mgmt_data)
                 [!provide]                        PROVIDE (__stop_pwr_mgmt_data = .)
 
-.bss            0x0000000020000080      0xa2c load address 0x00000000000075a4
+.bss            0x0000000020000080      0xa2c load address 0x0000000000007584
                 0x0000000020000080                . = ALIGN (0x4)
                 0x0000000020000080                __bss_start__ = .
  *(.bss*)
@@ -3748,7 +3748,7 @@ LOAD linker stubs
  .debug_frame   0x00000000000015cc       0xb0 /home/pistaw/projects/nrf51822/toolchain/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(lib_a-lock.o)
  .debug_frame   0x000000000000167c       0x20 /home/pistaw/projects/nrf51822/toolchain/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libnosys.a(sbrk.o)
 
-.debug_info     0x0000000000000000    0x22a36
+.debug_info     0x0000000000000000    0x22a18
  .debug_info    0x0000000000000000      0xb94 _build/nrf51822_xxaa_nrf_log_backend_serial.c.o
  .debug_info    0x0000000000000b94     0x1113 _build/nrf51822_xxaa_nrf_log_frontend.c.o
  .debug_info    0x0000000000001ca7      0x359 _build/nrf51822_xxaa_app_error.c.o
@@ -3759,13 +3759,13 @@ LOAD linker stubs
  .debug_info    0x0000000000007395     0x2224 _build/nrf51822_xxaa_nrf_drv_spi.c.o
  .debug_info    0x00000000000095b9     0x32ce _build/nrf51822_xxaa_nrf_drv_uart.c.o
  .debug_info    0x000000000000c887     0xa58c _build/nrf51822_xxaa_epaper.c.o
- .debug_info    0x0000000000016e13     0x12e7 _build/nrf51822_xxaa_main.c.o
- .debug_info    0x00000000000180fa     0x2943 _build/nrf51822_xxaa_SEGGER_RTT.c.o
- .debug_info    0x000000000001aa3d      0xb1e _build/nrf51822_xxaa_diskio_blkdev.c.o
- .debug_info    0x000000000001b55b     0x72e0 _build/nrf51822_xxaa_ff.c.o
- .debug_info    0x000000000002283b      0x1fb _build/nrf51822_xxaa_system_nrf51.c.o
+ .debug_info    0x0000000000016e13     0x12c9 _build/nrf51822_xxaa_main.c.o
+ .debug_info    0x00000000000180dc     0x2943 _build/nrf51822_xxaa_SEGGER_RTT.c.o
+ .debug_info    0x000000000001aa1f      0xb1e _build/nrf51822_xxaa_diskio_blkdev.c.o
+ .debug_info    0x000000000001b53d     0x72e0 _build/nrf51822_xxaa_ff.c.o
+ .debug_info    0x000000000002281d      0x1fb _build/nrf51822_xxaa_system_nrf51.c.o
 
-.debug_abbrev   0x0000000000000000     0x2cdc
+.debug_abbrev   0x0000000000000000     0x2cc6
  .debug_abbrev  0x0000000000000000      0x370 _build/nrf51822_xxaa_nrf_log_backend_serial.c.o
  .debug_abbrev  0x0000000000000370      0x307 _build/nrf51822_xxaa_nrf_log_frontend.c.o
  .debug_abbrev  0x0000000000000677      0x13b _build/nrf51822_xxaa_app_error.c.o
@@ -3776,11 +3776,11 @@ LOAD linker stubs
  .debug_abbrev  0x0000000000001205      0x3bd _build/nrf51822_xxaa_nrf_drv_spi.c.o
  .debug_abbrev  0x00000000000015c2      0x409 _build/nrf51822_xxaa_nrf_drv_uart.c.o
  .debug_abbrev  0x00000000000019cb      0x49a _build/nrf51822_xxaa_epaper.c.o
- .debug_abbrev  0x0000000000001e65      0x32c _build/nrf51822_xxaa_main.c.o
- .debug_abbrev  0x0000000000002191      0x32c _build/nrf51822_xxaa_SEGGER_RTT.c.o
- .debug_abbrev  0x00000000000024bd      0x363 _build/nrf51822_xxaa_diskio_blkdev.c.o
- .debug_abbrev  0x0000000000002820      0x398 _build/nrf51822_xxaa_ff.c.o
- .debug_abbrev  0x0000000000002bb8      0x124 _build/nrf51822_xxaa_system_nrf51.c.o
+ .debug_abbrev  0x0000000000001e65      0x316 _build/nrf51822_xxaa_main.c.o
+ .debug_abbrev  0x000000000000217b      0x32c _build/nrf51822_xxaa_SEGGER_RTT.c.o
+ .debug_abbrev  0x00000000000024a7      0x363 _build/nrf51822_xxaa_diskio_blkdev.c.o
+ .debug_abbrev  0x000000000000280a      0x398 _build/nrf51822_xxaa_ff.c.o
+ .debug_abbrev  0x0000000000002ba2      0x124 _build/nrf51822_xxaa_system_nrf51.c.o
 
 .debug_loc      0x0000000000000000    0x27442
  .debug_loc     0x0000000000000000     0x178c _build/nrf51822_xxaa_nrf_log_backend_serial.c.o
@@ -3950,7 +3950,7 @@ LOAD linker stubs
  .debug_macro   0x000000000000d41f       0xe7 _build/nrf51822_xxaa_ff.c.o
  .debug_macro   0x000000000000d506       0xdf _build/nrf51822_xxaa_system_nrf51.c.o
 
-.debug_line     0x0000000000000000    0x1cdfe
+.debug_line     0x0000000000000000    0x1cde3
  .debug_line    0x0000000000000000     0x11f6 _build/nrf51822_xxaa_nrf_log_backend_serial.c.o
  .debug_line    0x00000000000011f6      0xd70 _build/nrf51822_xxaa_nrf_log_frontend.c.o
  .debug_line    0x0000000000001f66      0x88b _build/nrf51822_xxaa_app_error.c.o
@@ -3961,13 +3961,13 @@ LOAD linker stubs
  .debug_line    0x00000000000070df     0x1862 _build/nrf51822_xxaa_nrf_drv_spi.c.o
  .debug_line    0x0000000000008941     0x1cc3 _build/nrf51822_xxaa_nrf_drv_uart.c.o
  .debug_line    0x000000000000a604     0x662e _build/nrf51822_xxaa_epaper.c.o
- .debug_line    0x0000000000010c32      0xf20 _build/nrf51822_xxaa_main.c.o
- .debug_line    0x0000000000011b52     0x2bf9 _build/nrf51822_xxaa_SEGGER_RTT.c.o
- .debug_line    0x000000000001474b      0xcb3 _build/nrf51822_xxaa_diskio_blkdev.c.o
- .debug_line    0x00000000000153fe     0x74ef _build/nrf51822_xxaa_ff.c.o
- .debug_line    0x000000000001c8ed      0x511 _build/nrf51822_xxaa_system_nrf51.c.o
+ .debug_line    0x0000000000010c32      0xf05 _build/nrf51822_xxaa_main.c.o
+ .debug_line    0x0000000000011b37     0x2bf9 _build/nrf51822_xxaa_SEGGER_RTT.c.o
+ .debug_line    0x0000000000014730      0xcb3 _build/nrf51822_xxaa_diskio_blkdev.c.o
+ .debug_line    0x00000000000153e3     0x74ef _build/nrf51822_xxaa_ff.c.o
+ .debug_line    0x000000000001c8d2      0x511 _build/nrf51822_xxaa_system_nrf51.c.o
 
-.debug_str      0x0000000000000000    0x3c9a0
+.debug_str      0x0000000000000000    0x3c9a4
  .debug_str     0x0000000000000000    0x33503 _build/nrf51822_xxaa_nrf_log_backend_serial.c.o
                                       0x3378f (size before relaxing)
  .debug_str     0x0000000000033503     0x1c3a _build/nrf51822_xxaa_nrf_log_frontend.c.o
@@ -3988,13 +3988,13 @@ LOAD linker stubs
                                       0x3576e (size before relaxing)
  .debug_str     0x0000000000039569      0x335 _build/nrf51822_xxaa_epaper.c.o
                                       0x34f4e (size before relaxing)
- .debug_str     0x000000000003989e     0x1c8f _build/nrf51822_xxaa_main.c.o
-                                      0x36f58 (size before relaxing)
- .debug_str     0x000000000003b52d      0x415 _build/nrf51822_xxaa_SEGGER_RTT.c.o
+ .debug_str     0x000000000003989e     0x1c93 _build/nrf51822_xxaa_main.c.o
+                                      0x36f5c (size before relaxing)
+ .debug_str     0x000000000003b531      0x415 _build/nrf51822_xxaa_SEGGER_RTT.c.o
                                       0x2fb8e (size before relaxing)
- .debug_str     0x000000000003b942      0x1b0 _build/nrf51822_xxaa_diskio_blkdev.c.o
+ .debug_str     0x000000000003b946      0x1b0 _build/nrf51822_xxaa_diskio_blkdev.c.o
                                       0x32b78 (size before relaxing)
- .debug_str     0x000000000003baf2      0xd65 _build/nrf51822_xxaa_ff.c.o
+ .debug_str     0x000000000003baf6      0xd65 _build/nrf51822_xxaa_ff.c.o
                                        0x42fe (size before relaxing)
- .debug_str     0x000000000003c857      0x149 _build/nrf51822_xxaa_system_nrf51.c.o
+ .debug_str     0x000000000003c85b      0x149 _build/nrf51822_xxaa_system_nrf51.c.o
                                       0x2a6f5 (size before relaxing)
