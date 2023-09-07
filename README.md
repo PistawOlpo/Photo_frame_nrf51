@@ -23,26 +23,19 @@ gcc-arm-none-eabi-
 
 
 ### Install:
-'''
+```
 make clean
-
 make
-
 make flash
-'''
+```
 
 
 ### Connecting to the logger (for viewing the log outputs from the nrf51 chip):
-
-'telnet localhost 9090'
-
+`telnet localhost 9090`
 
 
 
-##to do:
 
-
-- PCB project
-
-
-- implementing sleep mode
+## to do:
+- PCB project.
+- implementing sleep mode.
