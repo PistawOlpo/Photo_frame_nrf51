@@ -72,12 +72,9 @@
 #include "nrf_log_ctrl.h"
 
 #include "epaper.h"
-//#include "imagedata.h"
-
 #include <string.h>
 
 
-//#define FILE_NAME   "/OUTDATA/1.DAT"
 #define TEST_STRING2 "SD card example.\r\n"
 
 #define SDC_SCK_PIN     ARDUINO_13_PIN  ///< SDC serial clock (SCK) pin.
@@ -88,19 +85,13 @@
 
 
 
-#define TEST_STRING "Nordic"
-//static uint8_t       m_tx_buf[] = TEST_STRING;           /**< TX buffer. */
-//static uint8_t       m_rx_buf[sizeof(TEST_STRING) + 1];    /**< RX buffer. */
-//static const uint8_t m_length = sizeof(m_tx_buf);        /**< Transfer length. */
+#define TEST_STRING "Frame"
 
 uint8_t      read_buf[400];
 static volatile bool buf_write_read_done; 
 uint32_t current_File[12+1];
 
 
-/**
- * @brief Function for main application entry.
- */
 /**
  * @brief  SDC block device definition
  * */
@@ -114,7 +105,7 @@ NRF_BLOCK_DEV_SDC_DEFINE(
 );
 
 /**
- * @brief Function for demonstrating FAFTS usage.
+ * @brief Function for FAFTS usage.
  **/
 static void fatfs_example()
 {
@@ -123,10 +114,9 @@ static void fatfs_example()
     static FILINFO fno2;
     static FIL file;
 
-    UINT br;//, bw;         /* File read/write count */
+    UINT br;         /* File read/write count */
 
 
-   // uint32_t bytes_written;
     FRESULT ff_result;
     DSTATUS disk_state = STA_NOINIT;
 
@@ -169,32 +159,8 @@ static void fatfs_example()
         return;
     }
     
-    // do
-    // {
-        // ff_result = f_readdir(&dir, &fno);
-        // if (ff_result != FR_OK)
-        // {
-            // NRF_LOG_INFO("Directory read failed.");
-            // return;
-        // }
-        // 
-        // if (fno.fname[0])
-        // {
-            // if (fno.fattrib & AM_DIR)
-            // {
-                // NRF_LOG_RAW_INFO("   <DIR>   %s\r\n",(uint32_t)fno.fname);
-            // }
-            // else
-            // {
-                // NRF_LOG_RAW_INFO("%9lu  %s\r\n", fno.fsize, (uint32_t)fno.fname);
-            // }
-        // }
-    // }
-    // while (fno.fname[0]);
     NRF_LOG_RAW_INFO("\r\n");
-    
-    //NRF_LOG_INFO("Writing to file " FILE_NAME "...\r\n");
-    
+       
    
     ff_result = f_findfirst(&dj, &fno2, "/OUTDATA", "*.DAT"); /* Start to search for photo files */
     NRF_LOG_INFO("file: %s .\r\n",(u_int32_t)fno2.fname);
@@ -225,9 +191,7 @@ static void fatfs_example()
             NRF_LOG_INFO("Read %u\r\n.", br);
             if (br == 0) break; /* error or eof */
             for(UINT j = 0 ; j < br; j ++) {
-                //int k=2;
                     Epd_SendData(read_buf[j]);
-                // Epd_SendData(68);
                 }
         }
         (void) f_close(&file);
@@ -246,9 +210,7 @@ static void fatfs_example()
     else
     {
         NRF_LOG_INFO("read success\r\n");
-    }
-
-    
+    }   
     return;
 }
 
@@ -271,7 +233,6 @@ int main(void)
     while (true)
     {
         fatfs_example();
-       // __WFE();
     }
     NRF_LOG_INFO("\r\nEnd of program.\r\n\r\n");
 }

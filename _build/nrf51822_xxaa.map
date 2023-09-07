@@ -3748,7 +3748,7 @@ LOAD linker stubs
  .debug_frame   0x00000000000015cc       0xb0 /home/pistaw/projects/nrf51822/toolchain/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(lib_a-lock.o)
  .debug_frame   0x000000000000167c       0x20 /home/pistaw/projects/nrf51822/toolchain/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libnosys.a(sbrk.o)
 
-.debug_info     0x0000000000000000    0x22a37
+.debug_info     0x0000000000000000    0x22a36
  .debug_info    0x0000000000000000      0xb94 _build/nrf51822_xxaa_nrf_log_backend_serial.c.o
  .debug_info    0x0000000000000b94     0x1113 _build/nrf51822_xxaa_nrf_log_frontend.c.o
  .debug_info    0x0000000000001ca7      0x359 _build/nrf51822_xxaa_app_error.c.o
@@ -3758,12 +3758,12 @@ LOAD linker stubs
  .debug_info    0x0000000000006f32      0x463 _build/nrf51822_xxaa_nrf_drv_common.c.o
  .debug_info    0x0000000000007395     0x2224 _build/nrf51822_xxaa_nrf_drv_spi.c.o
  .debug_info    0x00000000000095b9     0x32ce _build/nrf51822_xxaa_nrf_drv_uart.c.o
- .debug_info    0x000000000000c887     0xa58d _build/nrf51822_xxaa_epaper.c.o
- .debug_info    0x0000000000016e14     0x12e7 _build/nrf51822_xxaa_main.c.o
- .debug_info    0x00000000000180fb     0x2943 _build/nrf51822_xxaa_SEGGER_RTT.c.o
- .debug_info    0x000000000001aa3e      0xb1e _build/nrf51822_xxaa_diskio_blkdev.c.o
- .debug_info    0x000000000001b55c     0x72e0 _build/nrf51822_xxaa_ff.c.o
- .debug_info    0x000000000002283c      0x1fb _build/nrf51822_xxaa_system_nrf51.c.o
+ .debug_info    0x000000000000c887     0xa58c _build/nrf51822_xxaa_epaper.c.o
+ .debug_info    0x0000000000016e13     0x12e7 _build/nrf51822_xxaa_main.c.o
+ .debug_info    0x00000000000180fa     0x2943 _build/nrf51822_xxaa_SEGGER_RTT.c.o
+ .debug_info    0x000000000001aa3d      0xb1e _build/nrf51822_xxaa_diskio_blkdev.c.o
+ .debug_info    0x000000000001b55b     0x72e0 _build/nrf51822_xxaa_ff.c.o
+ .debug_info    0x000000000002283b      0x1fb _build/nrf51822_xxaa_system_nrf51.c.o
 
 .debug_abbrev   0x0000000000000000     0x2cdc
  .debug_abbrev  0x0000000000000000      0x370 _build/nrf51822_xxaa_nrf_log_backend_serial.c.o
